@@ -7,7 +7,7 @@ const MainSearchBar = () => {
     const [epicUsername, setEpicUsername] = useState("");
 
     return (
-        <Container className="main-search">
+        <Container className="main-search main-search-container">
             <Form.Group as={Row} className="col-12 main-search" controlId="mainSearch">
                 <Col className="col-6">
                     <Form.Control
