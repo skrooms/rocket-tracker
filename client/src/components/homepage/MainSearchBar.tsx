@@ -18,7 +18,7 @@ const MainSearchBar = () => {
                         }}/>
                 </Col>
                 <Col sm="2">
-                    <Link to={"/playersearch?epicid=" + epicUsername}>
+                    <Link to={"/playerprofile?epicid=" + epicUsername}>
                         <Button size="lg" className="btn btn-secondary">
                             Search
                         </Button>

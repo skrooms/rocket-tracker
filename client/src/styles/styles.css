@@ -30,8 +30,9 @@ body, html {
     padding: 5px
 }
 
-.main-search-container {
-    
+.player-card-title {
+    padding-left: 30px;
+    padding-top: 20px
 }
 
 

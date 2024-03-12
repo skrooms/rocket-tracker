@@ -7,6 +7,7 @@ import Root from './routes/root';
 import Home from './routes/home';
 import NotFoundPage from './pages/NotFoundPage';
 import background from "./assets/images/background_blurred.jpg";
+import PlayerProfile from './routes/playerprofile';
 
 const router = createBrowserRouter([
   {
@@ -15,8 +16,16 @@ const router = createBrowserRouter([
     errorElement: <NotFoundPage />,
     children: [
       {
+        index: true,
+        element: <Home />
+      },
+      {
         path: "/home",
         element: <Home />
+      },
+      {
+        path: "/playerprofile",
+        element: <PlayerProfile />
       }
     ]
   }
