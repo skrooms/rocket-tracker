@@ -1,13 +1,27 @@
 
 
-body {
+body, html {
     background-color: #171717;
     color: #EDEDED;
+    height: 100%
+}
+
+.bg {
+    background-image: url("../assets/images/background_blurred.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.page {
+    min-height: 95vh;
 }
 
 .navbar {
     background-color: #444444;
     color: #EDEDED;
+    height: 5vh
 }
 
 .main-search {
@@ -17,7 +31,7 @@ body {
 }
 
 .main-search-container {
-    min-height: 60vh;
+    
 }
 
 

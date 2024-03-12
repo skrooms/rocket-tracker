@@ -6,8 +6,8 @@ const HomePage = () => {
 
 
     return (
-        <div className="main-search-bar d-flex align-items-center justify-content-center">
-            <Container className="main-search-container">
+        <div className="page d-flex align-items-center justify-content-center">
+            <Container>
                 <MainSearchBar />
             </Container>
         </div>

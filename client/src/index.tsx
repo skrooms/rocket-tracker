@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Root from './routes/root';
 import Home from './routes/home';
 import NotFoundPage from './pages/NotFoundPage';
+import background from "./assets/images/background_blurred.jpg";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <div className='page bg'>
+      <RouterProvider router={router} />
+    </div>
   </React.StrictMode>
 );
