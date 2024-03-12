@@ -10,8 +10,8 @@ const start = async () => {
         console.log('Successfully connected to the database');
 
         // Start the express app only if the connection is sucessful
-        app.listen(3000, () => {
-            console.log(`Server is listening on port 3000...`);
+        app.listen(env.PORT, () => {
+            console.log(`Server is listening on port ${env.PORT}...`);
         })
     } catch (error) {
         console.log(error);

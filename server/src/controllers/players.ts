@@ -1,4 +1,7 @@
 import { RequestHandler } from "express";
+import { StatusCodes } from "http-status-codes";
+import mongoose from "mongoose";
+import Player from "../models/playerModel";
 
 const getPlayers: RequestHandler = async (req, res, next) => {
     // Get all players
@@ -9,50 +12,39 @@ const getPlayers: RequestHandler = async (req, res, next) => {
     }
 }
 
-const getPlayerById: RequestHandler = async (req, res, next) => {
-    // Get one player via Mongo _id
-    try {
+const getAndUpdatePlayerByEpicUsername: RequestHandler = async (req, res, next) => {
+    // TODO: Get player data from Rocket League API
 
+    try {
+        const player = await Player.findOne({ epicUsername: req.params.epicUsername });
+
+        if (player) {
+            // If the player already exists in the database, update it
+        } else {
+            // If the player doesn't exist, create a new database entry using the response provided from the Rocket League API
+        }
     } catch (error) {
         next(error);
     }
 }
 
 interface PlayerBody {
-
+        epicUsername: string,
+        rankedStats: {}
 }
 
 const createPlayer: RequestHandler<unknown, unknown, PlayerBody, unknown> = async (req, res, next) => {
     // Create new player
     try {
-
+        const player = await Player.create(req.body);
+        res.status(StatusCodes.CREATED).json(player);
     } catch (error) {
         next(error);
     }
 } 
 
-const updatePlayerById: RequestHandler<unknown, unknown, PlayerBody, unknown> = async (req, res, next) => {
-    // Update player by Mongo _id
-    try {
-
-    } catch (error) {
-        next(error);
-    }
-}
-
-const deletePlayerById: RequestHandler = async (req, res, next) => {
-    // Delete a player from database by Mongo _id
-    try {
-
-    } catch (error) {
-        next(error);
-    }
-}
-
 export {
     getPlayers,
-    getPlayerById,
-    createPlayer,
-    updatePlayerById,
-    deletePlayerById
+    getAndUpdatePlayerByEpicUsername,
+    createPlayer
 }
