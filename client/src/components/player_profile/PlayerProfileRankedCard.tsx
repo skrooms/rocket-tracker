@@ -2,7 +2,7 @@ import { Card, Table } from "react-bootstrap"
 import { Player } from "../../models/player";
 
 interface PlayerProfileRankedCardProps {
-    player: Player
+    player: Player | null
 }
 
 const PlayerProfileRankedCard = ({ player }: PlayerProfileRankedCardProps) => {
@@ -11,7 +11,7 @@ const PlayerProfileRankedCard = ({ player }: PlayerProfileRankedCardProps) => {
     const playerCardTableBody = (
         <tbody>
             {
-                player.rankedStats.ranks.map(playlist => {
+                player?.rankedStats.ranks.map(playlist => {
                     return (
                         <tr>
                             <td>{playlist.playlist} / {playlist.rank} Division {playlist.division}</td>
@@ -28,7 +28,7 @@ const PlayerProfileRankedCard = ({ player }: PlayerProfileRankedCardProps) => {
     return (
         <Card>
             <Card.Title>
-                <h2 className="player-card-title">{player.epicUsername}'s Ranked Stats</h2>
+                <h2 className="player-card-title">{player?.epicUsername}'s Ranked Stats</h2>
             </Card.Title>
             <Card.Body>
                 <Table>

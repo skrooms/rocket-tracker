@@ -16,13 +16,15 @@ const getAndUpdatePlayerByEpicUsername: RequestHandler = async (req, res, next) 
     // TODO: Get player data from Rocket League API
 
     try {
-        const player = await Player.findOne({ epicUsername: req.params.epicUsername });
+        const player = await Player.findOne({ epicUsername: req.params.id });
 
         if (player) {
             // If the player already exists in the database, update it
         } else {
             // If the player doesn't exist, create a new database entry using the response provided from the Rocket League API
         }
+
+        res.status(StatusCodes.OK).json(player);
     } catch (error) {
         next(error);
     }
