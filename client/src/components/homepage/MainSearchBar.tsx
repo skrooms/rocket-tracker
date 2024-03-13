@@ -18,8 +18,8 @@ const MainSearchBar = () => {
                         }}/>
                 </Col>
                 <Col sm="2">
-                    <Link to={"/playerprofile?epicUsername=" + epicUsername}>
-                        <Button size="lg" className="btn btn-secondary">
+                    <Link to={(epicUsername !== "") ? "/playerprofile?epicUsername=" + epicUsername : "#"}>
+                        <Button size="lg" className="btn btn-secondary" disabled={epicUsername === ""}>
                             Search
                         </Button>
                     </Link>

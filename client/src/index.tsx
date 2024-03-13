@@ -8,6 +8,7 @@ import Home from './routes/home';
 import NotFoundPage from './pages/NotFoundPage';
 import background from "./assets/images/background_blurred.jpg";
 import PlayerProfile from './routes/playerprofile';
+import Leaderboards from './routes/leaderboards';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/playerprofile",
         element: <PlayerProfile />
+      },
+      {
+        path: "/leaderboards",
+        element: <Leaderboards />
       }
     ]
   }
