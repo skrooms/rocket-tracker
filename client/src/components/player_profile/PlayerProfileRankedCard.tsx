@@ -7,6 +7,11 @@ interface PlayerProfileRankedCardProps {
 
 const PlayerProfileRankedCard = ({ player }: PlayerProfileRankedCardProps) => {
 
+    const tableRowStyle = {
+        color: "white",
+        backgroundColor: "#444444",
+    };
+
 
     const playerCardTableBody = (
         <tbody>
@@ -14,10 +19,10 @@ const PlayerProfileRankedCard = ({ player }: PlayerProfileRankedCardProps) => {
                 player?.rankedStats.ranks.map(playlist => {
                     return (
                         <tr>
-                            <td>{playlist.playlist} / {playlist.rank} Division {playlist.division}</td>
-                            <td>{playlist.mmr}</td>
-                            <td>{playlist.played}</td>
-                            <td>{playlist.streak}</td>
+                            <td style={tableRowStyle}>{playlist.playlist} / {playlist.rank} Division {playlist.division}</td>
+                            <td style={tableRowStyle}>{playlist.mmr}</td>
+                            <td style={tableRowStyle}>{playlist.played}</td>
+                            <td style={tableRowStyle}>{playlist.streak}</td>
                         </tr>
                     );
                 })
@@ -26,7 +31,7 @@ const PlayerProfileRankedCard = ({ player }: PlayerProfileRankedCardProps) => {
     )
 
     return (
-        <Card>
+        <Card className="grey-card">
             <Card.Title>
                 <h2 className="player-card-title">{player?.epicUsername}'s Ranked Stats</h2>
             </Card.Title>
