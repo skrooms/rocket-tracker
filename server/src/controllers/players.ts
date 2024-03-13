@@ -16,8 +16,10 @@ const getPlayers: RequestHandler = async (req, res, next) => {
 const getAndUpdatePlayerByEpicUsername: RequestHandler = async (req, res, next) => {
     // Gets a players data from the Rocket League API. If the player already exists in our database, we update that document. If not, we create a new document for that player's data.
 
+    const epicUsername = req.params.id.toLowerCase();
+
     try {
-        const url = "https://rocket-league1.p.rapidapi.com/ranks/" + req.params.id;
+        const url = "https://rocket-league1.p.rapidapi.com/ranks/" + epicUsername;
         const options = {
             method: "GET",
             headers: {
@@ -32,15 +34,15 @@ const getAndUpdatePlayerByEpicUsername: RequestHandler = async (req, res, next) 
         const playerRankedData = await apiResponse.json();
         console.log(playerRankedData);
 
-        const potentialPlayer = await Player.findOne({ epicUsername: req.params.id });
+        const potentialPlayer = await Player.findOne({ epicUsername: epicUsername });
         let player;
 
         if (potentialPlayer) {
             // If the player already exists in the database, update it
-            player = await Player.findOneAndUpdate({ epicUsername: req.params.id }, { rankedStats: playerRankedData }, { new: true });
+            player = await Player.findOneAndUpdate({ epicUsername: epicUsername }, { rankedStats: playerRankedData }, { new: true });
         } else {
             // If the player doesn't exist, create a new database entry using the response provided from the Rocket League API
-            player = await Player.create({ epicUsername: req.params.id, rankedStats: playerRankedData });
+            player = await Player.create({ epicUsername: epicUsername, rankedStats: playerRankedData });
         }
 
         res.status(StatusCodes.OK).json(player);
