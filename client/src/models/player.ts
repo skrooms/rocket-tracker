@@ -50,11 +50,20 @@ export interface Player {
                 playlist: string,
                 mmr: number,
                 streak: number
+            },
+            {
+                division: number,
+                played: number,
+                rank: string,
+                playlist: string,
+                mmr: number,
+                streak: number
             }
         ],
         reward: {
             progress: number,
             level: string
-        }
+        },
+        __v: number
     }
 }
