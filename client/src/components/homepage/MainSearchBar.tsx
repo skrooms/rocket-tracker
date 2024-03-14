@@ -24,7 +24,6 @@ const MainSearchBar = () => {
                         </Button>
                     </Link>
                 </Col>
-                
             </Form.Group>
         </Container>
     );
