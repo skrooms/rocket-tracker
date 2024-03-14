@@ -9,15 +9,6 @@ const LeaderBoardStandingsCard = () => {
     const [players, setPlayers] = useState<Player[]>([]);
     const [playersLoading, setPlayersLoading] = useState(true);
 
-    const playlistMap = new Map();
-    playlistMap.set("1v1", 0);
-    playlistMap.set("2v2", 1);
-    playlistMap.set("3v3", 2);
-    playlistMap.set("hoops", 3);
-    playlistMap.set("rumble", 4);
-    playlistMap.set("dropshot", 5);
-    playlistMap.set("snowday", 6);
-
     const playlistNameMap = new Map();
     playlistNameMap.set("1v1", "Duel (Ranked)");
     playlistNameMap.set("2v2", "Doubles (Ranked)");
