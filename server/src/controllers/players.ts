@@ -51,23 +51,7 @@ const getAndUpdatePlayerByEpicUsername: RequestHandler = async (req, res, next) 
     }
 }
 
-interface PlayerBody {
-        epicUsername: string,
-        rankedStats: {}
-}
-
-const createPlayer: RequestHandler<unknown, unknown, PlayerBody, unknown> = async (req, res, next) => {
-    // Create new player (for testing use with POSTMAN)
-    try {
-        const player = await Player.create(req.body);
-        res.status(StatusCodes.CREATED).json(player);
-    } catch (error) {
-        next(error);
-    }
-} 
-
 export {
     getPlayers,
-    getAndUpdatePlayerByEpicUsername,
-    createPlayer
+    getAndUpdatePlayerByEpicUsername
 }
