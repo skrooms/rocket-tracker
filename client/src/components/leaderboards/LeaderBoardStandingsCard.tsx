@@ -1,8 +1,9 @@
 import { Card, Table, Spinner } from "react-bootstrap";
 import { Player } from "../../models/player";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as PlayersApi from "../../api/players_api";
+import { inherits } from "util";
 
 const LeaderBoardStandingsCard = () => {
     const [queryParams, setQueryParams] = useSearchParams();
@@ -91,7 +92,7 @@ const LeaderBoardStandingsCard = () => {
 
     const tableRowStyle = {
         color: "white",
-        backgroundColor: "#444444",
+        backgroundColor: "rgba(31, 31, 31, 0.0)",
     };
 
     const playerTableBody = (
@@ -101,7 +102,11 @@ const LeaderBoardStandingsCard = () => {
                     return (
                         <tr key={player.epicUsername}>
                             <td style={tableRowStyle}>{players.indexOf(player) + 1}</td>
-                            <td style={tableRowStyle}>{player.epicUsername}</td>
+                            <td style={tableRowStyle}>
+                                <Link to={"/playerprofile?epicUsername=" + player.epicUsername} style={{ color: "inherit", textDecoration: "inherit" }}>
+                                    {player.epicUsername}
+                                </Link>
+                            </td>
                             <td style={tableRowStyle}>{findPlayerRatingByPlaylist(player, selectedPlaylist)}</td>
                             <td style={tableRowStyle}>{findPlayerGamesPlayedByPlaylist(player, selectedPlaylist)}</td>
                         </tr>

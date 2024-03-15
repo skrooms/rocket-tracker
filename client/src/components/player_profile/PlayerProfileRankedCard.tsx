@@ -9,7 +9,7 @@ const PlayerProfileRankedCard = ({ player }: PlayerProfileRankedCardProps) => {
 
     const tableRowStyle = {
         color: "white",
-        backgroundColor: "#444444",
+        backgroundColor: "rgba(31, 31, 31, 0.0)",
     };
 
 
