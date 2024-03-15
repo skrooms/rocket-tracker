@@ -32,7 +32,6 @@ const getAndUpdatePlayerByEpicUsername: RequestHandler = async (req, res, next) 
 
         const apiResponse = await fetch(url, options);
         const playerRankedData = await apiResponse.json();
-        console.log(playerRankedData);
 
         const potentialPlayer = await Player.findOne({ epicUsername: epicUsername });
         let player;
