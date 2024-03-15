@@ -76,7 +76,7 @@ const LeaderBoardStandingsCard = () => {
                 if (sortedPlayers[Number(page) * 20 - 1]) {
                     playersToShow = sortedPlayers.slice((Number(page) - 1) * 20, Number(page) * 20);
                 } else {
-                    playersToShow = sortedPlayers.slice((Number(page) - 1));
+                    playersToShow = sortedPlayers.slice((Number(page) - 1) * 20);
                 }
                 
                 setPlayers(playersToShow);
