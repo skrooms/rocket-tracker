@@ -87,6 +87,7 @@ const LeaderBoardStandingsCard = () => {
         }
 
         fetchPlayers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedPlaylist, page]);
 
     const tableRowStyle = {
