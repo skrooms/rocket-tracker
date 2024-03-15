@@ -11,6 +11,11 @@ const MainSearchBar = () => {
             <Form.Group as={Row} className="col-12 main-search" controlId="mainSearch">
                 <Col className="col-6">
                     <Form.Control
+                        style={{
+                            backgroundColor: "rgba(31, 31, 31, 0.8)",
+                            color: "white", 
+                            borderColor: "rgba(31,31,31,0.8)",
+                        }}
                         placeholder="Exact Epic Games Username to Search" 
                         size="lg"
                         onChange={(e) => {
