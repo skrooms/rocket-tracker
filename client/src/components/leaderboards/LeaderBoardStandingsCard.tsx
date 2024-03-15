@@ -3,7 +3,6 @@ import { Player } from "../../models/player";
 import { Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as PlayersApi from "../../api/players_api";
-import { inherits } from "util";
 
 const LeaderBoardStandingsCard = () => {
     const [queryParams, setQueryParams] = useSearchParams();
@@ -40,7 +39,7 @@ const LeaderBoardStandingsCard = () => {
 
     const findPlayerRatingByPlaylist = (player: Player, playlist: string): number => {
         const playlistObject = player.rankedStats.ranks.filter((rank) => {
-            return rank.playlist === playlistNameMap.get(selectedPlaylist);
+            return rank.playlist === playlistNameMap.get(playlist);
         });
 
         if (playlistObject[0]) {
@@ -52,7 +51,7 @@ const LeaderBoardStandingsCard = () => {
 
     const findPlayerGamesPlayedByPlaylist = (player: Player, playlist: string): number => {
         const playlistObject = player.rankedStats.ranks.filter((rank) => {
-            return rank.playlist === playlistNameMap.get(selectedPlaylist);
+            return rank.playlist === playlistNameMap.get(playlist);
         });
 
         if (playlistObject[0]) {
