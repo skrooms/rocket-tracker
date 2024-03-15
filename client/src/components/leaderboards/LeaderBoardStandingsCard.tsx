@@ -108,7 +108,7 @@ const LeaderBoardStandingsCard = () => {
                                 </Link>
                             </td>
                             <td style={tableRowStyle}>{findPlayerRatingByPlaylist(player, selectedPlaylist)}</td>
-                            <td style={tableRowStyle}>{findPlayerGamesPlayedByPlaylist(player, selectedPlaylist)}</td>
+                            <td style={{...tableRowStyle, textAlign: "center"}}>{findPlayerGamesPlayedByPlaylist(player, selectedPlaylist)}</td>
                         </tr>
                     )
                 })
@@ -128,10 +128,10 @@ const LeaderBoardStandingsCard = () => {
                         <Card.Body>
                             <Table>
                                 <thead>
-                                    <th>Rank</th>
-                                    <th>Player</th>
+                                    <th className="col-1">Rank</th>
+                                    <th className="col-8">Player</th>
                                     <th>Rating</th>
-                                    <th>Matches Played</th>
+                                    <th style={{textAlign: "right"}}>Matches Played</th>
                                 </thead>
                                 { playerTableBody }
                             </Table>
