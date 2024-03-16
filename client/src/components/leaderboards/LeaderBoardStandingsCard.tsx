@@ -3,9 +3,11 @@ import { Player } from "../../models/player";
 import { Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as PlayersApi from "../../api/players_api";
+import LeaderBoardPageSelectButtons from "./LeaderBoardPageSelectButtons";
 
 const LeaderBoardStandingsCard = () => {
     const [queryParams, setQueryParams] = useSearchParams();
+    const [sortedPlayers, setSortedPlayers] = useState<Player[]>([]);
     const [players, setPlayers] = useState<Player[]>([]);
     const [playersLoading, setPlayersLoading] = useState(true);
 
@@ -69,6 +71,8 @@ const LeaderBoardStandingsCard = () => {
                 const sortedPlayers = players.sort((a, b) => {
                     return findPlayerRatingByPlaylist(b, selectedPlaylist) - findPlayerRatingByPlaylist(a, selectedPlaylist);
                 });
+
+                setSortedPlayers(sortedPlayers);
                 
                 let playersToShow: Player[];
 
@@ -101,7 +105,7 @@ const LeaderBoardStandingsCard = () => {
                 players.map(player => {
                     return (
                         <tr key={player.epicUsername}>
-                            <td style={tableRowStyle}>{players.indexOf(player) + 1}</td>
+                            <td style={tableRowStyle}>{sortedPlayers.indexOf(player) + 1}</td>
                             <td style={tableRowStyle}>
                                 <Link to={"/playerprofile?epicUsername=" + player.epicUsername} style={{ color: "inherit", textDecoration: "inherit" }}>
                                     {player.epicUsername}
@@ -139,6 +143,9 @@ const LeaderBoardStandingsCard = () => {
                     </Card>
                 )
             }
+            <div className="card-container d-flex justify-content-center">
+                <LeaderBoardPageSelectButtons sizeOfPlayersArray={sortedPlayers.length}/>
+            </div>
         </>
     );
 }

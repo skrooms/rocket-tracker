@@ -16,9 +16,6 @@ const LeaderboardsPage = () => {
                 <div className="card-container">
                     <LeaderBoardStandingsCard />
                 </div>
-                <div className="card-container d-flex justify-content-center">
-                    <LeaderBoardPageSelectButtons />
-                </div>
             </Container>
         </div>
     );

@@ -2,7 +2,12 @@ import { Button, ButtonGroup } from "react-bootstrap"
 import { useSearchParams } from "react-router-dom"
 
 
-const LeaderBoardPageSelectButtons = () => {
+
+interface LeaderBoardPageSelectButtonsProps {
+    sizeOfPlayersArray: number
+}
+
+const LeaderBoardPageSelectButtons = ({ sizeOfPlayersArray }: LeaderBoardPageSelectButtonsProps) => {
     const [searchParams, setSearchParams] = useSearchParams();
     let currentPage: string, playlist: string;
     const queryPage = searchParams.get("page");
@@ -19,8 +24,6 @@ const LeaderBoardPageSelectButtons = () => {
     } else {
         playlist = "3v3";
     }
-
-    // TODO: Conditionally show the buttons after the current selected page based on how many players are left to show.
 
     return (
         <ButtonGroup>
@@ -42,7 +45,7 @@ const LeaderBoardPageSelectButtons = () => {
             }
             <Button variant="secondary" active>{ currentPage }</Button>
             {
-                true && (
+                (sizeOfPlayersArray >= Number(currentPage) * 20) && (
                     <Button
                         variant="secondary"
                         onClick={() => {
@@ -50,7 +53,7 @@ const LeaderBoardPageSelectButtons = () => {
                         }}>{Number(currentPage) + 1}</Button>)
             }
             {
-                true && (
+                (sizeOfPlayersArray >= ((Number(currentPage) + 1) * 20)) && (
                     <Button
                         variant="secondary"
                         onClick={() => {
