@@ -4,6 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as PlayersApi from "../../api/players_api";
 import LeaderBoardPageSelectButtons from "./LeaderBoardPageSelectButtons";
+import ssl from "../../assets/images/rankicons/ssl.webp";
 
 const LeaderBoardStandingsCard = () => {
     const [queryParams, setQueryParams] = useSearchParams();
@@ -111,7 +112,10 @@ const LeaderBoardStandingsCard = () => {
                                     {player.epicUsername}
                                 </Link>
                             </td>
-                            <td style={tableRowStyle}>{findPlayerRatingByPlaylist(player, selectedPlaylist)}</td>
+                            <td style={tableRowStyle}>
+                                <img src={ssl} width="30px"/>
+                                {findPlayerRatingByPlaylist(player, selectedPlaylist)}
+                            </td>
                             <td style={{...tableRowStyle, textAlign: "center"}}>{findPlayerGamesPlayedByPlaylist(player, selectedPlaylist)}</td>
                         </tr>
                     )
