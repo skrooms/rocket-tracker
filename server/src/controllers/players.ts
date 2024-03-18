@@ -33,6 +33,11 @@ const getAndUpdatePlayerByEpicUsername: RequestHandler = async (req, res, next) 
         const apiResponse = await fetch(url, options);
         const playerRankedData = await apiResponse.json();
 
+        // The Rocket League API returns an empty json object if the player does not exist, so we check to see if the response object is empty, and if so we return that.
+        if (Object.keys(playerRankedData).length === 0) {
+            return res.status(StatusCodes.NOT_FOUND).json(playerRankedData);
+        }
+
         const potentialPlayer = await Player.findOne({ epicUsername: epicUsername });
         let player;
 
@@ -49,7 +54,6 @@ const getAndUpdatePlayerByEpicUsername: RequestHandler = async (req, res, next) 
         next(error);
     }
 }
-
 export {
     getPlayers,
     getAndUpdatePlayerByEpicUsername
