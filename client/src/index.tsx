@@ -9,6 +9,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import background from "./assets/images/background_blurred.jpg";
 import PlayerProfile from './routes/playerprofile';
 import Leaderboards from './routes/leaderboards';
+import PlayerNotFound from './routes/playernotfound';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/leaderboards",
         element: <Leaderboards />
+      },
+      {
+        path: "playernotfound",
+        element: <PlayerNotFound />
       }
     ]
   }
