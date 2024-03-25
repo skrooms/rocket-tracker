@@ -10,6 +10,7 @@ import background from "./assets/images/background_blurred.jpg";
 import PlayerProfile from './routes/playerprofile';
 import Leaderboards from './routes/leaderboards';
 import PlayerNotFound from './routes/playernotfound';
+import APIOopsie from './routes/apioopsie';
 
 const router = createBrowserRouter([
   {
@@ -34,8 +35,12 @@ const router = createBrowserRouter([
         element: <Leaderboards />
       },
       {
-        path: "playernotfound",
+        path: "/playernotfound",
         element: <PlayerNotFound />
+      },
+      {
+        path: "/apioopsie",
+        element: <APIOopsie />
       }
     ]
   }
