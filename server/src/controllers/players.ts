@@ -38,6 +38,10 @@ const getAndUpdatePlayerByEpicUsername: RequestHandler = async (req, res, next) 
             return res.status(StatusCodes.OK).json(playerRankedData);
         }
 
+        if ("messages" in playerRankedData) {
+            return res.status(StatusCodes.OK).json(playerRankedData);
+        }
+
         const potentialPlayer = await Player.findOne({ epicUsername: epicUsername });
         let player;
 
