@@ -1,7 +1,7 @@
 import { Container, Spinner } from "react-bootstrap";
 import PlayerProfileRankedCard from "../components/player_profile/PlayerProfileRankedCard";
 import { useEffect, useState } from "react";
-import { Navigate, redirect, useSearchParams } from "react-router-dom";
+import { Navigate, redirect, useNavigate, useSearchParams } from "react-router-dom";
 import * as PlayersApi from "../api/players_api";
 import { Player } from "../models/player";
 
@@ -13,6 +13,7 @@ const PlayerProfilePage = () => {
     let [searchParams] = useSearchParams();
     const epicUsernameSearchParam = searchParams.get("epicUsername");
     let epicUsername: string;
+    const navigate = useNavigate();
 
     if (epicUsernameSearchParam) {
         epicUsername = epicUsernameSearchParam;
@@ -28,7 +29,7 @@ const PlayerProfilePage = () => {
 
                 if (player) {
                     if ("messages" in player) {
-                        redirect("/apioopsie");
+                        navigate("/apioopsie");
                     }
                     setPlayer(player);
                     setIsPlayerLoading(false);
