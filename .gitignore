@@ -32,6 +32,9 @@ coverage
 # Bower dependency directory (https://bower.io/)
 bower_components
 
+# Production
+build
+
 # node-waf configuration
 .lock-wscript
 
@@ -73,6 +76,7 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
+.DS_Store
 .env
 .env.development.local
 .env.test.local
