@@ -1,7 +1,7 @@
 import { Container, Spinner } from "react-bootstrap";
 import PlayerProfileRankedCard from "../components/player_profile/PlayerProfileRankedCard";
 import { useEffect, useState } from "react";
-import { Navigate, redirect, useNavigate, useSearchParams } from "react-router-dom";
+import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import * as PlayersApi from "../api/players_api";
 import { Player } from "../models/player";
 
@@ -44,6 +44,7 @@ const PlayerProfilePage = () => {
         }
 
         fetchPlayer();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [epicUsername]);
 
 
