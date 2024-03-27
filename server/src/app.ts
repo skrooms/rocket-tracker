@@ -6,7 +6,7 @@ import cors from "cors";
 const app = express();
 
 const corsOptions = {
-    origin: "https://rocket-tracker-client.onrender.com"
+    origin: "https://rocket-tracker.onrender.com"
 }
 
 // Middleware
